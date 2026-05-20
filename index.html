@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>上林 様｜morich キャリアご提案</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #E60012;
+    --red-light: #fff0f0;
+    --gray-50: #f9fafb;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-500: #6b7280;
+    --gray-600: #4b5563;
+    --gray-700: #374151;
+    --gray-900: #111827;
+    --blue-50: #eff6ff;
+    --blue-100: #dbeafe;
+    --blue-600: #2563eb;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Noto Sans JP', sans-serif; background: #f5f5f5; color: var(--gray-900); line-height: 1.75; }
+  header { background: #fff; border-bottom: 3px solid var(--red); padding: 14px 24px; display: flex; align-items: center; gap: 16px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.07); }
+  header img { height: 38px; }
+  header .htxt p:first-child { font-size: 12px; color: var(--gray-500); }
+  header .htxt p:last-child { font-size: 17px; font-weight: 900; }
+  .nav-bar { background: var(--gray-900); padding: 0 12px; overflow-x: auto; white-space: nowrap; }
+  .nav-bar a { display: inline-block; padding: 13px 18px; color: #ccc; text-decoration: none; font-size: 12px; font-weight: 700; border-bottom: 3px solid transparent; transition: all 0.2s; }
+  .nav-bar a:hover { color: #fff; border-bottom-color: var(--red); }
+  main { max-width: 860px; margin: 0 auto; padding: 28px 14px 64px; }
+  .card { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); margin-bottom: 40px; overflow: hidden; border-top: 5px solid var(--red); }
+  .card-inner { padding: 28px 28px 36px; }
+  .badges { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 14px; }
+  .badge { font-size: 11px; font-weight: 700; padding: 3px 12px; border-radius: 999px; border: 2px solid var(--red); color: var(--red); background: var(--red-light); }
+  .badge-blue { border-color: var(--blue-600); color: var(--blue-600); background: var(--blue-50); }
+  .co-name { font-size: clamp(22px, 5vw, 34px); font-weight: 900; line-height: 1.2; margin-bottom: 5px; }
+  .co-url { font-size: 12px; margin-bottom: 22px; }
+  .co-url a { color: var(--blue-600); text-decoration: none; }
+  .co-url a:hover { text-decoration: underline; }
+  .overview { background: var(--blue-50); border: 1px solid var(--blue-100); border-radius: 8px; padding: 16px 20px; margin-bottom: 22px; }
+  .overview h3 { font-size: 10px; font-weight: 700; color: var(--blue-600); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 10px; }
+  .overview table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .overview tr { border-bottom: 1px solid var(--blue-100); }
+  .overview tr:last-child { border-bottom: none; }
+  .overview th { text-align: left; padding: 6px 14px 6px 0; color: var(--gray-600); font-weight: 700; width: 100px; vertical-align: top; white-space: nowrap; }
+  .overview td { padding: 6px 0; color: var(--gray-700); }
+  .highlight { background: var(--red-light); border: 2px solid var(--red); border-radius: 8px; padding: 16px 20px; margin-bottom: 22px; }
+  .highlight h3 { font-size: 13px; font-weight: 900; color: var(--red); margin-bottom: 8px; }
+  .highlight p, .highlight li { font-size: 13px; color: #7a0000; margin-bottom: 4px; }
+  .highlight ul { padding-left: 16px; }
+  .accordion { margin-bottom: 16px; }
+  .acc-header { display: flex; align-items: flex-start; justify-content: space-between; cursor: pointer; padding: 12px 16px; background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 8px; user-select: none; transition: background 0.15s; }
+  .acc-header:hover { background: var(--gray-100); }
+  .acc-header .label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--red); border-left: 3px solid var(--red); padding-left: 8px; margin-bottom: 5px; display: block; }
+  .acc-preview { font-size: 12px; color: var(--gray-500); line-height: 1.6; }
+  .acc-header-left { flex: 1; }
+  .acc-icon { width: 28px; height: 28px; flex-shrink: 0; margin-left: 12px; margin-top: 2px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: var(--gray-200); font-size: 13px; transition: transform 0.25s, background 0.2s; }
+  .acc-header.open .acc-icon { transform: rotate(180deg); background: var(--red); color: #fff; }
+  .acc-header.open { border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-bottom-color: transparent; }
+  .acc-body { display: none; padding: 20px 18px; border: 1px solid var(--gray-200); border-top: none; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px; font-size: 13px; color: var(--gray-700); line-height: 1.85; }
+  .acc-body.open { display: block; }
+  .acc-body p { margin-bottom: 10px; }
+  .acc-body ul { padding-left: 18px; margin-bottom: 10px; }
+  .acc-body li { margin-bottom: 6px; }
+  .job-wrap { border: 1px solid var(--gray-200); border-radius: 8px; overflow: hidden; margin-bottom: 16px; }
+  .job-header { background: var(--gray-900); color: #fff; padding: 14px 18px; display: flex; align-items: flex-start; justify-content: space-between; cursor: pointer; user-select: none; }
+  .job-title-text { font-size: 14px; font-weight: 900; margin-bottom: 3px; }
+  .job-preview { font-size: 11px; color: #aaa; line-height: 1.5; }
+  .job-icon { width: 26px; height: 26px; flex-shrink: 0; margin-left: 12px; margin-top: 2px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: rgba(255,255,255,0.15); font-size: 12px; transition: transform 0.25s; }
+  .job-header.open .job-icon { transform: rotate(180deg); }
+  .job-body { display: none; padding: 20px 18px; font-size: 13px; color: var(--gray-700); line-height: 1.85; }
+  .job-body.open { display: block; }
+  .job-body p { margin-bottom: 10px; }
+  .job-body ul { padding-left: 18px; margin-bottom: 10px; }
+  .job-body li { margin-bottom: 6px; }
+  .job-section { font-size: 11px; font-weight: 700; color: var(--red); text-transform: uppercase; letter-spacing: .06em; margin: 14px 0 6px; }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 4px; margin-right: 5px; margin-bottom: 8px; }
+  .tag-must { background: var(--red); color: #fff; }
+  .tag-want { background: var(--gray-600); color: #fff; }
+  .meta-pills { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 14px; }
+  .pill { font-size: 12px; font-weight: 700; padding: 4px 11px; border-radius: 999px; background: var(--gray-100); color: var(--gray-700); border: 1px solid var(--gray-200); }
+  .section-label { font-size: 11px; font-weight: 700; color: var(--gray-500); text-transform: uppercase; letter-spacing: .08em; border-left: 3px solid var(--red); padding-left: 8px; margin: 22px 0 10px; }
+  .links { display: flex; flex-wrap: wrap; gap: 8px; }
+  .lbtn { display: inline-flex; align-items: center; gap: 5px; padding: 7px 14px; border-radius: 6px; background: var(--gray-900); color: #fff; font-size: 12px; font-weight: 700; text-decoration: none; transition: background 0.2s; }
+  .lbtn:hover { background: var(--red); }
+  .lbtn-out { background: transparent; color: var(--gray-900); border: 2px solid var(--gray-200); }
+  .lbtn-out:hover { background: var(--gray-900); color: #fff; border-color: var(--gray-900); }
+  footer { text-align: center; padding: 28px 16px; font-size: 11px; color: var(--gray-500); border-top: 1px solid var(--gray-200); background: #fff; }
+  @media(max-width:600px){ .card-inner{ padding: 18px 14px 24px; } .overview th { width: 80px; } }
+</style>
+</head>
+<body>
+<header>
+  <img src="morich_logo.jpg" alt="morich">
+  <div class="htxt">
+    <p>morich キャリアご提案資料</p>
+    <p>上林 様</p>
+  </div>
+</header>
+<nav class="nav-bar">
+  <a href="#k1">1. ランディット株式会社</a>
+  <a href="#k2">2. 株式会社リィ（Lii）</a>
+  <a href="#k3">3. 株式会社リィ（Lii）</a>
+</nav>
+<main>
+
+<div class="card" id="k1"><div class="card-inner">
+  <div class="badges"><span class="badge">CFO候補</span><span class="badge badge-blue">未上場（N-3）</span></div>
+  <div class="co-name">ランディット株式会社</div>
+  <div class="co-url"><a href="https://landit.co.jp/" target="_blank">https://landit.co.jp/</a></div>
+  <div class="overview">
+    <h3>Corporate Overview</h3>
+    <table><tr><th>本社住所</th><td>〒163-0440　東京都新宿区西新宿二丁目1番1号　新宿三井ビルディング40階</td></tr><tr><th>上場区分</th><td>未上場（N-3）</td></tr></table>
+  </div>
+  <div class="highlight">
+    <h3>⭐ morichオススメPoint</h3>
+    <ul><li>IPO準備フェーズ：N-3期</li><li>社長リレーション</li></ul>
+  </div>
+  <div class="accordion">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="label">企業紹介</span>
+        <div class="acc-preview">モビリティ×不動産×AIを掛け合わせ、駐停車の自動化からモビリティインフラ構築を目指す注目のスタートアップです。「世の中に最適と豊かさを提供し、人々の営みに欠かせない存在に」をミッションに、アナログからデジタルへ、ハードからソフトまで、あらゆる角度から駐車場という"余白"の価値最大化に挑んでいます。</div>
+      </div>
+      <div class="acc-icon">▼</div>
+    </div>
+    <div class="acc-body"><p>モビリティ×不動産×AIを掛け合わせ、駐停車の自動化からモビリティインフラ構築を目指す注目のスタートアップです。「世の中に最適と豊かさを提供し、人々の営みに欠かせない存在に」をミッションに、アナログからデジタルへ、ハードからソフトまで、あらゆる角度から駐車場という"余白"の価値最大化に挑んでいます。</p><p>日本の自動車保有台数に対し、把握されている駐車場がごく一部である現状に着目。AIと人の手、AIカメラと管理ソフトウェアを組み合わせ、Googleやゼンリンをも上回る車室単位の圧倒的なデータベースを構築・更新しています。</p><p>建設現場や通勤用駐車場手配サービス「at PORT」をはじめ、駐車場管理を効率化するSaaS「SYNC PORT（シンクポート）」、個人向けの予約式短期駐車場サービス「PIT PORT（ピットポート）」、さらに、AIカメラによる現場管理システム「AIMO（アイモ）」、月極駐車場のオンラインマーケット「PARK STOCK（パークストック）」、コインパーキング、商業施設駐車場などのETC化アプリ「PARK FLOW（パークフロー）」などを展開しています。</p><p>これらの多様なプロダクトを通じて、単独企業では困難なあらゆる駐車スペースのシームレスな運用を実現しています。2024年度には黒字化を達成し、今期は約50億円弱の売上見込み。2028〜2029年のIPOを目指すなど、今まさに成長加速フェーズにある企業です。</p><p><strong>代表取締役社長 CEO　藤林 謙太氏</strong><br>2010年三菱商事株式会社に入社し、建設機械・産業機械・自動車の事業領域を担当。株式会社産業革新機構にてクロスボーダーのM＆Aを担当し、英国、日本の投資先（再生エネルギー関連） の取締役に就任。日本トイザらス株式会社では、Directorof Strategy ／戦略プロジェクト推進部長として、全社における機能横断的な戦略の立案・実行を担当。その後、IT企業等を経て、2021年にランディット株式会社を創業。</p></div>
+  </div>
+  
+    <div class="job-wrap">
+      <div class="job-header" onclick="toggleJob(this)">
+        <div>
+          <div class="job-title-text">📋 CFO候補</div>
+          <div class="job-preview">事業推進、管理会計、M&AのPMIまで幅広く責任を持つCFO候補</div>
+        </div>
+        <div class="job-icon">▼</div>
+      </div>
+      <div class="job-body">
+        <p><strong>■募集背景</strong><br>2021年の創業から2年で、年500％の成長を実現しましたが、これまでランディットでは「リファラル採用」を中心に人材を集めてきました。シリーズAラウンドの資金調達も完了し、次なる成長のフェーズを迎えるにあたって、「リファラル採用」にこだわらず私たちのビジョンに共感してくれる仲間を募ることにいたしました。</p><p><strong>■市場の可能性：</strong><br>日本のGDPのTOP5に位置する不動産、物流、建設業界に共通する「駐車場」領域。これまで収益性の低さと高い管理工数からDX化が見送られてきたこの市場は、約3兆円規模の潜在価値を秘めています。オーナー側は「煩雑な管理業務」などに、利用者は「リアルタイムでの空き情報へのアクセス不足」などに悩む中、真の課題解決に挑むプレイヤーが限られた、まさにブルーオーシャン市場です。</p><p><strong>■当社の強み：</strong><br>当社は駐車場DXのパイオニアとして、複数の革新的プロダクトを展開。7つの事業ポートフォリオは、多様な収益モデル（サクセスフィー、トランザクション課金、レベニューシェア、継続課金等）を展開し、安定性と成長性の両立を目指しています。この独自のビジネスモデルと市場開拓力が評価され、国内外の著名VCからシリーズAで12億円超の資金調達を実現。グローバル展開を視野に入れた成長ステージに入ってきています。</p><p><strong>■期待する役割</strong><br>調達業務は代表が担当しているため、CFOには事業推進、管理会計、M&AのPMI（Post Merger Integration）まで幅広く責任を持ち、経営のあらゆる側面でリーダーシップを発揮できる人材が求められています。</p>
+        <div class="meta-pills"><span class="pill">📍 東京</span><span class="pill">🏠 基本出社</span></div>
+      </div>
+    </div>
+  <div class="section-label">外部リンク</div>
+  <div class="links"><a class="lbtn" href="https://landit.co.jp/" target="_blank">🏢 企業サイト</a><a class="lbtn lbtn-out" href="https://www.wantedly.com/companies/company_7571953/post_articles/1002609?status=success" target="_blank">📝 社員インタビュー</a></div>
+</div></div>
+
+<div class="card" id="k2"><div class="card-inner">
+  <div class="badges"><span class="badge">CFO候補</span><span class="badge badge-blue">未上場（N-4以前）</span></div>
+  <div class="co-name">株式会社リィ（Lii）</div>
+  <div class="co-url"><a href="https://liistyle.com/" target="_blank">https://liistyle.com/</a></div>
+  <div class="overview">
+    <h3>Corporate Overview</h3>
+    <table><tr><th>本社住所</th><td>愛知県名古屋市昭和区御器所通3-8-1 御器所セントラルビル3A</td></tr><tr><th>横浜オフィス</th><td>神奈川県横浜市神奈川区神奈川2-11-18　渡辺ビル202号室</td></tr><tr><th>設立</th><td>2018年11月1日</td></tr><tr><th>上場区分</th><td>未上場（N-4以前）</td></tr></table>
+  </div>
+  <div class="highlight">
+    <h3>⭐ morichオススメPoint</h3>
+    <ul><li>IPO準備中</li><li>社長リレーション</li><li>過去入社実績アリ</li></ul>
+  </div>
+  <div class="accordion">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="label">企業紹介</span>
+        <div class="acc-preview">2018年11月1日設立。主に児童発達支援／放課後等デイサービス（幼児向け運動支援）を手がける「Lii sports studio」の運営を核に、キッズ向けパーソナルトレーニング、フィットネス・接骨院事業、クリエイティブ事業、さらには採用支援／組織開発支援といった領域まで手広く扱っています。</div>
+      </div>
+      <div class="acc-icon">▼</div>
+    </div>
+    <div class="acc-body"><p>2018年11月1日設立。主に児童発達支援／放課後等デイサービス（幼児向け運動支援）を手がける「Lii sports studio」の運営を核に、キッズ向けパーソナルトレーニング、フィットネス・接骨院事業、クリエイティブ事業、さらには採用支援／組織開発支援といった領域まで手広く扱っています。「良質な運動機会を創造し、ドキドキがあふれる毎日をつくる」をテーマに、運動を通じて"運動が苦手な人"や"運動習慣のない人"にも、気軽に体を動かす機会を提供することを目指しています。</p><p>「Lii sports studio」は、日本各地（愛知、神奈川、兵庫、大阪、静岡、東京、沖縄など）に展開。2025年9月には、学習と運動を掛け合わせた新形態の学習塾「Lii learning studio（リィ ラーニングスタジオ）」を横浜市にオープン。これにより「運動支援 → 教育領域」への事業拡張に乗り出しています。</p><p>また、成人向けのフィットネス・接骨院事業を買収・統合する形で参入し、子どもだけでなく大人も含めた幅広い年齢層への運動機会提供を視野に入れています。</p><p>デジタルスポーツ療育を活用した独自の児童支援に加え、教育や成人向けサービスまで展開することで、子どもから大人まで対応できる成長支援のかたちを実現。2025年には「中部経済産業局長賞」も受賞しており、福祉×スポーツ×テクノロジーを組み合わせた取り組みが、各方面から注目を集めています。</p><p>創業者の廣瀬氏と羽田氏が中心となって経営/事業を推進し、CFO的存在の財務顧問やプロマーケターなどは外部の専門家が業務委託として補強しています。同社はIPOを目指しており、組織を統括し事業を牽引するCxOレイヤーの人材の確保が喫緊の課題とされています。</p><p><strong>CEO兼CBO        廣瀬 あゆみ氏</strong><br>1989年生まれ。武庫川女子大学健康スポーツ科学部卒業後、新卒でソフトバンク株式会社に入社。その後、中小企業での新規事業立ち上げやベンチャー企業でのブランドマネージャーを経て、2018年に株式会社リィを創業。第24回 Japan Venture Awards 地域貢献特別賞受賞。</p></div>
+  </div>
+  
+    <div class="job-wrap">
+      <div class="job-header" onclick="toggleJob(this)">
+        <div>
+          <div class="job-title-text">📋 CFO候補（最高財務責任者）</div>
+          <div class="job-preview">IPOに向けた財務戦略の策定実行と管理部門全般の統括を担うCFO候補</div>
+        </div>
+        <div class="job-icon">▼</div>
+      </div>
+      <div class="job-body">
+        <p>現在は、業務委託の財務顧問がCFO的な役割を担っていますが、IPOに向け内製化された経営体制が急務となっています。<br>このポジションには、いわゆる「守り（管理部長的な役割）」と「攻め（資金調達やM&Aを通じた事業加速）」の両面が求められます。</p><p><strong>想定される業務内容</strong></p><ul><li>IPOに向けた財務戦略、資本政策の策定と実行</li><li>新規事業（第二、第三の矢）の育成に向けたM&Aやエクイティ調達（VC含む）の推進</li><li>労務、経理、コンプライアンスを含む管理部門全般の統括</li><li>海外展開の業務</li></ul>
+        <div class="meta-pills"><span class="pill">📍 その他</span><span class="pill">🏠 基本出社</span><span class="pill">✅ 副業可</span></div>
+      </div>
+    </div>
+  <div class="section-label">外部リンク</div>
+  <div class="links"><a class="lbtn" href="https://liistyle.com/" target="_blank">🏢 企業サイト</a><a class="lbtn lbtn-out" href="https://note.com/ayumi_ll/n/nc70b4a7aa747" target="_blank">📝 代表note</a><a class="lbtn lbtn-out" href="https://drive.google.com/file/d/1JGeb-4tsKr1Mo0hOtdzwNBeOckw75UFr/view?usp=drivesdk" target="_blank">📊 統合報告書</a></div>
+</div></div>
+
+<div class="card" id="k3"><div class="card-inner">
+  <div class="badges"><span class="badge">CFO候補</span><span class="badge badge-blue">未上場</span></div>
+  <div class="co-name">株式会社リィ（Lii）</div>
+  <div class="co-url"><a href="https://liistyle.com/" target="_blank">https://liistyle.com/</a></div>
+  <div class="overview">
+    <h3>Corporate Overview</h3>
+    <table><tr><th>本社住所</th><td>愛知県名古屋市昭和区御器所通3-8-1 御器所セントラルビル3A</td></tr><tr><th>横浜オフィス</th><td>神奈川県横浜市神奈川区神奈川2-11-18 渡辺ビル202号室</td></tr><tr><th>設立</th><td>2018年11月1日</td></tr><tr><th>従業員数</th><td>220〜230名</td></tr><tr><th>上場区分</th><td>未上場</td></tr></table>
+  </div>
+  <div class="highlight">
+    <h3>⭐ morichオススメPoint</h3>
+    <ul><li>IPO準備中</li><li>社長リレーション</li><li>過去入社実績アリ</li></ul>
+  </div>
+  <div class="accordion">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="label">企業紹介</span>
+        <div class="acc-preview">2018年11月1日設立。主に児童発達支援／放課後等デイサービス（幼児向け運動支援）を手がける「Lii sports studio」の運営を核に、キッズ向けパーソナルトレーニング、フィットネス・接骨院事業、クリエイティブ事業、さらには採用支援／組織開発支援といった領域まで手広く扱っています。</div>
+      </div>
+      <div class="acc-icon">▼</div>
+    </div>
+    <div class="acc-body"><p>2018年11月1日設立。主に児童発達支援／放課後等デイサービス（幼児向け運動支援）を手がける「Lii sports studio」の運営を核に、キッズ向けパーソナルトレーニング、フィットネス・接骨院事業、クリエイティブ事業、さらには採用支援／組織開発支援といった領域まで手広く扱っています。「良質な運動機会を創造し、ドキドキがあふれる毎日をつくる」をテーマに、運動を通じて&quot;運動が苦手な人&quot;や&quot;運動習慣のない人&quot;にも、気軽に体を動かす機会を提供することを目指しています。</p><p>「Lii sports studio」は、日本各地（愛知、神奈川、兵庫、大阪、静岡、東京、沖縄など）に展開。2025年9月には、学習と運動を掛け合わせた新形態の学習塾「Lii learning studio（リィ ラーニングスタジオ）」を横浜市にオープン。これにより「運動支援 → 教育領域」への事業拡張に乗り出しています。</p><p>また、成人向けのフィットネス・接骨院事業を買収・統合する形で参入し、子どもだけでなく大人も含めた幅広い年齢層への運動機会提供を視野に入れています。</p><p>デジタルスポーツ療育を活用した独自の児童支援に加え、教育や成人向けサービスまで展開することで、子どもから大人まで対応できる成長支援のかたちを実現。2025年には「中部経済産業局長賞」も受賞しており、福祉×スポーツ×テクノロジーを組み合わせた取り組みが、各方面から注目を集めています。</p><p><strong>CEO兼CBO 廣瀬 あゆみ氏</strong><br>1989年生まれ。武庫川女子大学健康スポーツ科学部卒業後、新卒でソフトバンク株式会社に入社。その後、中小企業での新規事業立ち上げやベンチャー企業でのブランドマネージャーを経て、2018年に株式会社リィを創業。第24回 Japan Venture Awards 地域貢献特別賞受賞。</p><p><strong>会社のミッションと事業全体像</strong><br>株式会社リィは「運動を通じて心身の健康を取り戻す社会の実現」を目指し、特に現代社会における身体活動の喪失に課題意識を持って設立された。生活が便利になった一方で、心身の不調やメンタルクリニックの増加などの社会問題に着目し、運動の機会を提供することで人々の生活にリズムと豊かさを取り戻すことを使命としている。</p><p><strong>主要事業一覧（4本柱）</strong></p><ul><li><strong>① リースポーツ事業（主力）</strong><br>発達障害やグレーゾーンのある子ども向けの運動支援施設を全国展開。現在約40店舗を運営・準備中。2030年には200店舗までの拡大を目指す。1店舗あたりスタッフは約5名。全国に社員は220〜230名在籍。組織体制は全国を4エリアに分け、エリアマネージャー（3〜4名）と副事業部長（攻め・守りの2名体制）を配置。その上に事業部長（畑氏）が統括。主なスタッフは保育士や教員免許保有者で、現場主導の運営が中心。</li><li><strong>② ハルフィット東京（海外事業）</strong><br>インドネシア・ジャカルタで20代女性を中心にしたリラクゼーション・フィットネス施設を運営（2025年4月オープン）。現地には日本人1名とインドネシア人スタッフ8名。現地で会社経営経験のある日本人からのアドバイスを受けながら運営中。若手社員が主導しているが、海外事業経験者のブレーン不足が課題。</li><li><strong>③ リーラーニングスタジオ（新規事業）</strong><br>運動で心拍を上げ、集中力を高めたうえで学習するという独自メソッドの学習塾。2025年8月にサービス提供開始。現場には元保育士や教員経験者が中心に配置。立ち上げメンバーの経験不足が課題。</li><li><strong>④ パーソナルジム事業（M&A事業）</strong><br>2年前にM&Aで取得したジム事業。現在はPMI（ポスト・マージャー・インテグレーション）および最適化フェーズ。既存事業のノウハウを活かしながら再構築を進めている。</li></ul><p>人材確保のためにも、最短でのIPOをターゲットに進めておられます。廣瀬社長は明るくハキハキした素敵な方です！ぜひお話を聞いてみてはいかがでしょうか？</p></div>
+  </div>
+  
+    <div class="job-wrap">
+      <div class="job-header" onclick="toggleJob(this)">
+        <div>
+          <div class="job-title-text">📋 CFO候補（最高財務責任者）</div>
+          <div class="job-preview">IPOに向けた財務戦略、資本政策の策定と実行から管理部門全般の統括まで担うCFO候補</div>
+        </div>
+        <div class="job-icon">▼</div>
+      </div>
+      <div class="job-body">
+        <p>現在は、業務委託の財務顧問がCFO的な役割を担っていますが、IPOに向け内製化された経営体制が急務となっています。このポジションには、いわゆる「守り（管理部長的な役割）」と「攻め（資金調達やM&Aを通じた事業加速）」の両面が求められます。</p><p><strong>想定される業務内容</strong></p><ul><li>IPOに向けた財務戦略、資本政策の策定と実行</li><li>新規事業（第二、第三の矢）の育成に向けたM&Aやエクイティ調達（VC含む）の推進</li><li>労務、経理、コンプライアンスを含む管理部門全般の統括</li><li>海外展開の業務</li></ul>
+        <div class="meta-pills"><span class="pill">📍 それ以外</span><span class="pill">🏠 基本出社</span><span class="pill">✅ 副業可</span></div>
+      </div>
+    </div>
+  <div class="section-label">外部リンク</div>
+  <div class="links"><a class="lbtn" href="https://liistyle.com/" target="_blank">🏢 企業サイト</a><a class="lbtn lbtn-out" href="https://note.com/ayumi_ll/n/nc70b4a7aa747" target="_blank">📖 代表note1</a><a class="lbtn lbtn-out" href="https://note.com/ayumi_ll/n/n3724238152c8" target="_blank">📖 代表note2</a><a class="lbtn lbtn-out" href="https://drive.google.com/file/d/1JGeb-4tsKr1Mo0hOtdzwNBeOckw75UFr/view?usp=drivesdk" target="_blank">📊 統合報告書</a></div>
+</div></div>
+</main>
+<footer>
+  <p>本資料はmorichが上林 様のためにご用意した個人情報を含む機密資料です。無断転用・転載はご遠慮ください。</p>
+  <p style="margin-top:6px;">© 株式会社morich</p>
+</footer>
+<script>
+  function toggleAcc(header) {
+    const body = header.nextElementSibling;
+    header.classList.toggle('open');
+    body.classList.toggle('open');
+  }
+  function toggleJob(header) {
+    const body = header.nextElementSibling;
+    header.classList.toggle('open');
+    body.classList.toggle('open');
+  }
+</script>
+</body>
+</html>
